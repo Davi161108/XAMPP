@@ -1,0 +1,109 @@
+<?php
+$titulo = "";
+$autor = null;
+$quantidade = 12;
+$ano = 2023;
+$categoria = "Tecnologia";
+
+function validarTitulo($titulo)
+{
+    if (empty($titulo)) {
+        return true;
+    }
+    return false;
+
+    if (preg_match($titulo)) {
+        return true;
+    }
+}
+
+if (validarTitulo($titulo)) {
+    echo "Título vazio";
+} 
+elseif (validarTitulo($titulo) == false) {
+    echo "<br>O título deve conter apenas letras";
+}
+else{
+    echo "<br>Título: $titulo";
+}
+
+function validarAutor($autor)
+{
+    if (empty($autor)) {
+        return true;
+    }
+    return false;
+}
+
+if (validarAutor($autor)) {
+    echo "<br>Autor vazio";
+} else{
+    echo "<br>Autor: $autor";
+}
+
+function validarQuantidade($quantidade)
+{
+    if (empty($quantidade) === "") {
+        return false;
+    }
+
+    if (!is_numeric($quantidade)) {
+        return false;
+    }
+
+    if ($quantidade < 0) {
+        return false;
+    }
+
+    return true;
+}
+
+if (validarQuantidade($quantidade) == false) {
+    echo "<br>Quantidade inválida";
+} else {
+    echo "<br>Quantidade: $quantidade";
+}
+
+function validarAno($ano)
+{
+    if (empty($ano) === "") {
+        return false;
+    }
+
+    if (!is_numeric($ano)) {
+        return false;
+    }
+
+    if ($ano < 0) {
+        return false;
+    }
+
+    return true;
+}
+
+if (validarAno($ano) == false) {
+    echo "<br>Ano inválido";
+} else {
+    echo "<br>Ano: $ano";
+}
+
+function validarCategoria($categoria)
+{
+    if (empty($categoria) === "") {
+        return false;
+    }
+
+    if (!preg_match('/^[A-Za-zÀ-ú\s]+$/u', $categoria)) {
+        return false;
+    }
+
+    return true;
+}
+
+if (validarCategoria($categoria) == false) {
+    echo "<br>Categoria inválida";
+} else {
+    echo "<br>Categoria: $categoria";
+}
+
+?>
